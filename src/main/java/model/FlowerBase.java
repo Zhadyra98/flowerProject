@@ -1,12 +1,23 @@
-package flowers;
+package model;
+
+import enums.Color;
 
 import javax.xml.crypto.Data;
+import java.time.LocalDate;
 
-abstract class FlowerBase {
+public abstract class FlowerBase {
     private int price;
-    private Data dateOfCame;
+    private LocalDate dateOfCame;
     private int lengthOfStem;
     private int weight;
+    Color color;
+
+    protected FlowerBase(int price,  int lengthOfStem, int weight, Color color) {
+        this.price = price;
+        this.lengthOfStem = lengthOfStem;
+        this.weight = weight;
+        this.color = color;
+    }
 
     public int getPrice() {
         return price;
@@ -16,12 +27,8 @@ abstract class FlowerBase {
         this.price = price;
     }
 
-    public Data getDateOfCame() {
+    public LocalDate getDateOfCame() {
         return dateOfCame;
-    }
-
-    public void setDateOfCame(Data dateOfCame) {
-        this.dateOfCame = dateOfCame;
     }
 
     public int getLengthOfStem() {

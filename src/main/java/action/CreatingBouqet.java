@@ -8,41 +8,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreatingBouqet {
-    List <Object> bouqet = new ArrayList<Object>();
+    List<Object> bouqet = new ArrayList<Object>();
     private Object Cover;
     private Object FlowerBase;
     private Object ExtraPetal;
-
-    public void addFlowerToBouqet(FlowerBase flower){
-        bouqet.add(flower);
+    private int totalPrice;
+    public void addFlowerToBouqet(FlowerBase flower, int count) {
+        for (int i = 0; i < count; i++) {
+            bouqet.add(flower);
+            totalPrice+=flower.getPrice();
+        }
     }
-    public void addCover(Cover cover){
+    public int getTotalPrice(){
+        return totalPrice;
+    }
+    public void addCover(Cover cover) {
         bouqet.add(cover);
+        totalPrice+=cover.getPrice();
     }
-    public void addPetal(ExtraPetal petal){
+
+    public void addPetal(ExtraPetal petal) {
         bouqet.add(petal);
+        totalPrice+=petal.getPrice();
     }
-    public void showTheBouqet(){
-        System.out.println("There are "+bouqet.toString());
+
+    public void showTheBouqet() {
+        System.out.println("There are " + bouqet.toString());
     }
-    public void  countWeightOfBouqet(){
+
+    public void countWeightOfBouqet() {
         int totalWeight = 0;
-        for(Object o : bouqet){
+        for (Object o : bouqet) {
             System.out.println(o.getClass());
-            if(o.getClass()==FlowerBase){
-                FlowerBase flower = (FlowerBase)o;
-                totalWeight+=flower.getWeight();
+            if (o.getClass() == FlowerBase) {
+                FlowerBase flower = (FlowerBase) o;
+                totalWeight += flower.getWeight();
             }
-            if(o.getClass()==ExtraPetal){
+            if (o.getClass() == ExtraPetal) {
                 ExtraPetal petal = (model.ExtraPetal) o;
-                totalWeight+=petal.getWeight();
-            }
-            else {
+                totalWeight += petal.getWeight();
+            } else {
                 continue;
             }
         }
-        System.out.println( totalWeight);
+        System.out.println(totalWeight);
     }
 
+    @Override
+    public String toString() {
 
+        return  " bouqet=" + bouqet +
+                ", Cover=" + Cover +
+                ", ExtraPetal=" + ExtraPetal +
+                '}';
+    }
 }

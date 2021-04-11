@@ -3,8 +3,7 @@ package enums;
 public enum RoseType {
     GOLAND("Goland"),
     BEACH("Beach") ,
-    SWEET("Sweet"),
-    MULTIFLORA("Multiflora");
+    SWEET("Sweet");
 
     private String value;
     RoseType (String value){

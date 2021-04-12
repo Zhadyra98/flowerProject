@@ -4,13 +4,20 @@ import enums.Color;
 
 import javax.xml.crypto.Data;
 
-public class Tulip extends FlowerBase{
+public class PinkTulip extends FlowerBase{
 
     private int lifeSize;
     private boolean isWithRoot;
-
-    public Tulip(int price,  int lengthOfStem, int weight, Color color, int lifeSize, boolean isWithRoot) {
-        super(price, lengthOfStem, weight, color);
+    Color color = Color.PINK;
+    public PinkTulip(){
+        super.setPrice(350);
+        super.setLengthOfStem(29);
+        super.setWeight(120);
+        this.lifeSize=48;
+        this.isWithRoot=true;
+    }
+    public PinkTulip(int price, int lengthOfStem, int weight,  int lifeSize, boolean isWithRoot) {
+        super(price, lengthOfStem, weight);
         this.lifeSize=lifeSize;
         this.isWithRoot=isWithRoot;
     }
@@ -33,10 +40,6 @@ public class Tulip extends FlowerBase{
 
     @Override
     public String toString() {
-        return "Tulip{" +
-                "color=" + color +
-                ", lifeSize=" + lifeSize +
-                ", isWithRoot=" + isWithRoot +
-                '}';
+        return "PinkTulip";
     }
 }

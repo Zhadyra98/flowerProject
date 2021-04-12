@@ -1,17 +1,17 @@
 package model;
 
-public class ExtraPetal {
+public class ExtraPetal extends Decor {
     private  int length;
-    private  int weight;
-    private int price;
+
 
     public ExtraPetal( int price, int length, int weight) {
-        this.price = price;
         this.length = length;
-        this.weight = weight;
-
     }
-
+    public ExtraPetal(){
+        super.setPrice(280);
+        this.length=50;
+        super.setWeight(50);
+    }
     public int getLength() {
         return length;
     }
@@ -20,27 +20,10 @@ public class ExtraPetal {
         this.length = length;
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
         return "ExtraPetal{" +
                 "length=" + length +
-                ", weight=" + weight +
                 '}';
     }
 }

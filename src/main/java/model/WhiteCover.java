@@ -2,20 +2,21 @@ package model;
 
 import enums.Color;
 
-public class Cover  extends Decor {
+public class WhiteCover  extends Decor {
     private int width;
     private int length;
     Color color;
 
-    public Cover(int width, int length, Color color) {
+    public WhiteCover(int width, int length) {
         this.width = width;
         this.length = length;
-        this.color = color;
+        this.color = Color.WHITE;
     }
-    public Cover(){
+    public WhiteCover(){
         super.setPrice(280);
         this.length=50;
         super.setWeight(50);
+        this.color=Color.WHITE;
     }
 
     public int getWidth() {
@@ -36,8 +37,7 @@ public class Cover  extends Decor {
 
     @Override
     public String toString() {
-        return "Cover{" +
-                "color=" + color +
-                '}';
+        return "White Cover";
     }
 }
+

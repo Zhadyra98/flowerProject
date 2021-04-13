@@ -34,6 +34,9 @@ public class Bouqet {
             this.allFlowers.add(flower);
         }
     }
+    public void addDecorToBouqet(Decor decor){
+        this.allDecors.add(decor);
+    }
     @Override
     public String toString() {
         return " allFlowers=" + allFlowers +
@@ -48,7 +51,9 @@ public class Bouqet {
     }
     public static Vector initializeTheDecorChoiceVector(){
         Vector<Decor> allTypesOfDecor = new Vector<>();
-        allTypesOfDecor.add(new Cover());
+        allTypesOfDecor.add(new WhiteCover());
+        allTypesOfDecor.add(new PinkCover());
+        allTypesOfDecor.add(new YellowCover());
         allTypesOfDecor.add(new ExtraPetal());
         return allTypesOfDecor;
     }

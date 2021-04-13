@@ -19,9 +19,7 @@ public class RedRose extends FlowerBase {
 
     @Override
     public String toString() {
-        return "RedRose" +
-                " with " + numberOfShipy + " shipy " +
-                super.toString();
+        return "RedRose";
     }
 }
 

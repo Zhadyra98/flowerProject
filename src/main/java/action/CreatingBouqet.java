@@ -1,6 +1,5 @@
 package action;
 
-import model.Cover;
 import model.ExtraPetal;
 import model.FlowerBase;
 
@@ -21,15 +20,6 @@ public class CreatingBouqet {
     }
     public int getTotalPrice(){
         return totalPrice;
-    }
-    public void addCover(Cover cover) {
-        bouqet.add(cover);
-        totalPrice+=cover.getPrice();
-    }
-
-    public void addPetal(ExtraPetal petal) {
-        bouqet.add(petal);
-        totalPrice+=petal.getPrice();
     }
 
     public void showTheBouqet() {

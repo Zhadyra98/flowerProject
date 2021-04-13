@@ -34,19 +34,17 @@ public class Runner {
                         tmpBouqet.addFlowerToBouqet((FlowerBase) Bouqet.initializeTheFlowerChoiceVector().get(choice - 1), amount);
                         System.out.println(tmpBouqet.toString());
                     } else if (choice == 2) {
-                        for (int i = 0; i < Bouqet.initializeTheFlowerChoiceVector().size(); i++) {
+                        for (int i = 0; i < Bouqet.initializeTheDecorChoiceVector().size(); i++) {
                             System.out.print("[");
                             System.out.print(i + 1);
-                            System.out.println("] " + Bouqet.initializeTheFlowerChoiceVector().get(i).getClass().getSimpleName());
+                            System.out.println("] " + Bouqet.initializeTheDecorChoiceVector().get(i).getClass().getSimpleName());
                         }
                         choice = in.nextInt();
-                        System.out.println("You choice is " + Bouqet.initializeTheFlowerChoiceVector().get(choice - 1).getClass().getSimpleName());
-                        System.out.println("Enter how many you want to get?");
-                        amount = in.nextInt();
-                        tmpBouqet.addFlowerToBouqet((FlowerBase) Bouqet.initializeTheFlowerChoiceVector().get(choice - 1), amount);
+                        System.out.println("You choice is " + Bouqet.initializeTheDecorChoiceVector().get(choice - 1).getClass().getSimpleName());
+                        tmpBouqet.addDecorToBouqet((Decor) Bouqet.initializeTheDecorChoiceVector().get(choice - 1));
                         System.out.println(tmpBouqet.toString());
                     } else if (choice == 3) {
-                        System.out.println("Show Price of bouqet");
+                        System.out.println("Price of bouqet = "+ tmpBouqet.getTotalPrice());
                         System.out.println("Will you buy it ? [yes]/[no]");
                         String strChoice = in.next();
                         if (strChoice.equals("yes")) {

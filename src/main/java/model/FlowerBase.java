@@ -1,18 +1,21 @@
 package model;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class FlowerBase {
+public abstract class FlowerBase implements Serializable {
     private int price;
     private LocalDate dateOfCame;
     private int lengthOfStem;
     private int weight;
 
-    protected FlowerBase(int price,  int lengthOfStem, int weight) {
+    protected FlowerBase(int price, int lengthOfStem, int weight) {
         this.price = price;
         this.lengthOfStem = lengthOfStem;
         this.weight = weight;
     }
-    public FlowerBase(){
+
+    public FlowerBase() {
     }
 
     public int getPrice() {
@@ -45,9 +48,9 @@ public abstract class FlowerBase {
 
     @Override
     public String toString() {
-        return  "came " + dateOfCame +
+        return "came " + dateOfCame +
                 ", price is " + price +
                 ", lengthOfStem is " + lengthOfStem +
-                ", weight is " + weight ;
+                ", weight is " + weight;
     }
 }

@@ -1,14 +1,19 @@
 package model;
 
-public class Decor {
+import java.io.Serializable;
+
+public class Decor implements Serializable {
     private int price;
     private int weight;
+
     public int getPrice() {
         return price;
     }
-    public Decor(){
+
+    public Decor() {
 
     }
+
     public void setPrice(int price) {
         this.price = price;
     }

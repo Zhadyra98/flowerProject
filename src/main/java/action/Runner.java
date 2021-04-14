@@ -2,15 +2,19 @@ package action;
 
 import model.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class Runner {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         Scanner in = new Scanner(System.in);
-        Vector<Bouqet> allBouqets = new Vector<>();
+        System.out.println("Welcome to the Flower Shop");
+        if (new File("bouqets").exists()) {
+            Database.desBouqets();
+        }
         while (true) {
-            System.out.println("Welcome to the Flower Shop");
             System.out.println("[1] Select to create bouqet \n[2] See existing Bouqets \n[3] Select to Exit");
             int choice = in.nextInt();
             int amount;
@@ -40,11 +44,11 @@ public class Runner {
                             System.out.println("] " + Bouqet.initializeTheDecorChoiceVector().get(i).getClass().getSimpleName());
                         }
                         choice = in.nextInt();
-                        System.out.println("You choice is " + Bouqet.initializeTheDecorChoiceVector().get(choice - 1).getClass().getSimpleName());
+                        System.out.println(Bouqet.initializeTheDecorChoiceVector().get(choice - 1).getClass().getSimpleName() + " is added");
                         tmpBouqet.addDecorToBouqet((Decor) Bouqet.initializeTheDecorChoiceVector().get(choice - 1));
                         System.out.println(tmpBouqet.toString());
                     } else if (choice == 3) {
-                        System.out.println("Price of bouqet = "+ tmpBouqet.getTotalPrice());
+                        System.out.println("Price of bouqet = " + tmpBouqet.getTotalPrice() + ", weight of Bouqet = " + tmpBouqet.getTotalWeight());
                         System.out.println("Will you buy it ? [yes]/[no]");
                         String strChoice = in.next();
                         if (strChoice.equals("yes")) {
@@ -52,15 +56,31 @@ public class Runner {
                             break;
                         } else {
                             System.out.println("Good-Bye");
-                            allBouqets.add(tmpBouqet);
+                            Database.allBouqets.add(tmpBouqet);
                             break;
                         }
                     }
                 }
             } else if (choice == 2) {
-                System.out.println(allBouqets);
+                System.out.println("Select number of bouqet to Buy or [0] to quit");
+                for (int i = 0; i < Database.allBouqets.size(); i++) {
+                    System.out.print("[" + (i + 1));
+                    System.out.println("]" + Database.allBouqets.get(i).toString());
+                }
+                choice = in.nextInt();
+                if (choice != 0) {
+                    System.out.println(Database.allBouqets.get(choice - 1).toString());
+                    System.out.println("Price = " + Database.allBouqets.get(choice - 1).getTotalPrice() + ", weight= " + Database.allBouqets.get(choice - 1).getTotalWeight());
+                    System.out.println("Will you buy it ? [yes]/[no]");
+                    String strChoice = in.next();
+                    if (strChoice.equals("yes")) {
+                        System.out.println("Thank you for choosing us");
+                        Database.allBouqets.remove(Database.allBouqets.get(choice - 1));
+                    }
+                }
             } else if (choice == 3) {
                 System.out.println("Good-Bye");
+                Database.serBouqets();
                 break;
             }
         }

@@ -3,23 +3,26 @@ package model;
 import enums.Color;
 
 import javax.xml.crypto.Data;
+import java.io.Serializable;
 
-public class PinkTulip extends FlowerBase{
+public class PinkTulip extends FlowerBase implements Serializable {
 
     private int lifeSize;
     private boolean isWithRoot;
     Color color = Color.PINK;
-    public PinkTulip(){
+
+    public PinkTulip() {
         super.setPrice(350);
         super.setLengthOfStem(29);
         super.setWeight(120);
-        this.lifeSize=48;
-        this.isWithRoot=true;
+        this.lifeSize = 48;
+        this.isWithRoot = true;
     }
-    public PinkTulip(int price, int lengthOfStem, int weight,  int lifeSize, boolean isWithRoot) {
+
+    public PinkTulip(int price, int lengthOfStem, int weight, int lifeSize, boolean isWithRoot) {
         super(price, lengthOfStem, weight);
-        this.lifeSize=lifeSize;
-        this.isWithRoot=isWithRoot;
+        this.lifeSize = lifeSize;
+        this.isWithRoot = isWithRoot;
     }
 
     public int getLifeSize() {

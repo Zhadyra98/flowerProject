@@ -2,7 +2,9 @@ package model;
 
 import enums.Color;
 
-public class RedRose extends FlowerBase {
+import java.io.Serializable;
+
+public class RedRose extends FlowerBase implements Serializable {
     int numberOfShipy;
     Color color = Color.RED;
 

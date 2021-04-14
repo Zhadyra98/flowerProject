@@ -2,7 +2,9 @@ package model;
 
 import enums.Color;
 
-public class PinkCover extends Decor{
+import java.io.Serializable;
+
+public class PinkCover extends Decor implements Serializable {
     private int width;
     private int length;
     Color color;
@@ -12,11 +14,12 @@ public class PinkCover extends Decor{
         this.length = length;
         this.color = Color.YELLOW;
     }
-    public PinkCover(){
+
+    public PinkCover() {
         super.setPrice(280);
-        this.length=50;
+        this.length = 50;
         super.setWeight(50);
-        this.color=Color.YELLOW;
+        this.color = Color.YELLOW;
     }
 
     public int getWidth() {

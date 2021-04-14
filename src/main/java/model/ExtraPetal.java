@@ -1,17 +1,21 @@
 package model;
 
-public class ExtraPetal extends Decor {
-    private  int length;
+import java.io.Serializable;
+
+public class ExtraPetal extends Decor implements Serializable {
+    private int length;
 
 
-    public ExtraPetal( int price, int length, int weight) {
+    public ExtraPetal(int price, int length, int weight) {
         this.length = length;
     }
-    public ExtraPetal(){
+
+    public ExtraPetal() {
         super.setPrice(280);
-        this.length=50;
+        this.length = 50;
         super.setWeight(50);
     }
+
     public int getLength() {
         return length;
     }
@@ -22,8 +26,6 @@ public class ExtraPetal extends Decor {
 
     @Override
     public String toString() {
-        return "ExtraPetal{" +
-                "length=" + length +
-                '}';
+        return "ExtraPetal" ;
     }
 }
